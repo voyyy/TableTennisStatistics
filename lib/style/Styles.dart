@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 abstract class Styles {
   static const _voyColor = Color.fromRGBO(216, 61, 218, 1);
   static const _dmnColor = Color.fromRGBO(0, 141, 255, 1);
-  static const _primaryColor = Color.fromRGBO(52, 141, 38, 1);
+  static const primaryColor = Color.fromRGBO(52, 141, 38, 1);
   static const _warningColor = Colors.red;
 
   static const TextStyle header = TextStyle(
@@ -26,10 +26,19 @@ abstract class Styles {
   );
   static const TextStyle numbers = TextStyle(
     fontSize: 20,
+    fontWeight: FontWeight.w500,
+  );
+  static const TextStyle smallerNumbers = TextStyle(
+    fontSize: 15,
     fontWeight: FontWeight.w400,
   );
   static const TextStyle warnings = TextStyle(
     fontSize: 11,
     color: _warningColor,
+  );
+  static const TextStyle biggerWarning = TextStyle(
+    fontSize: 15,
+    color: _warningColor,
+    fontWeight: FontWeight.w500,
   );
 }
