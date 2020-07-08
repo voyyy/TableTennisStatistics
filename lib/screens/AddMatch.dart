@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:intl/date_symbol_data_file.dart';
+import 'package:intl/intl.dart';
 import 'package:table_tennis_statistics/components/MatchResult.dart';
 import 'package:table_tennis_statistics/components/SetResult.dart';
 import 'package:table_tennis_statistics/style/Styles.dart';
+import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 
 class AddMatch extends StatefulWidget {
   AddMatch({Key key}) : super(key: key);
@@ -14,6 +17,12 @@ class _AddMatchState extends State<AddMatch> {
   int _voySet;
   int _dmnSet;
 
+  static DateTime _date = DateTime.now();
+  static DateFormat _format = DateFormat('dd-MM-yyyy');
+  String _formattedDate = _format.format(_date);
+
+  final myController = TextEditingController();
+
   List<int> _voySetPoints = new List(7);
   List<int> _dmnSetPoints = new List(7);
 
@@ -22,8 +31,6 @@ class _AddMatchState extends State<AddMatch> {
 
   List<bool> _errors =
       new List<bool>.generate(8, (index) => new bool.fromEnvironment(''));
-
-  final myController = TextEditingController();
 
   List<TextEditingController> _textEditingController =
       new List<TextEditingController>.generate(
@@ -193,6 +200,32 @@ class _AddMatchState extends State<AddMatch> {
                   resetPoints();
                 },
               ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.calendar_today,
+                    size: 24.0,
+                  ),
+                  FlatButton(
+                      onPressed: () {
+                        DatePicker.showDatePicker(
+                          context,
+                          minTime: DateTime(2014, 1, 1),
+                          maxTime: DateTime.now(),
+                          currentTime: DateTime.now(),
+                          locale: LocaleType.pl,
+                          showTitleActions: true,
+                          onConfirm: (date) {
+                            setState(() {
+                              _formattedDate = _format.format(date);
+                            });
+                          },
+                        );
+                      },
+                      child: Text(_formattedDate)),
+                ],
+              ),
               if (_errors[7])
                 Text('Wprowadzono błędny wynik meczu', style: Styles.warnings),
               if (!_errors[7] && _voySet != null && _dmnSet != null)
@@ -209,6 +242,7 @@ class _AddMatchState extends State<AddMatch> {
                   // Text('data: $_focusNodes'),
                   // Text('data: $_errors'),
                   //Text('data: $_textEditingController'),
+                  Text(_formattedDate),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
