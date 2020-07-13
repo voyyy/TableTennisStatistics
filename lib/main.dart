@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:table_tennis_statistics/screens/AddMatch.dart';
-//import 'screens/AddMatch.dart';
+import 'package:table_tennis_statistics/navigation/BottomNavigation.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,6 +10,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: _title, home: AddMatch());
+    return MaterialApp(title: _title, home: BottomNavigation());
   }
 }

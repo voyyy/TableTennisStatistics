@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 abstract class Styles {
-  static const _voyColor = Color.fromRGBO(216, 61, 218, 1);
-  static const _dmnColor = Color.fromRGBO(0, 141, 255, 1);
+  static const voyColor = Color.fromRGBO(216, 61, 218, 0.8);
+  static const dmnColor = Color.fromRGBO(0, 141, 255, 0.8);
   static const primaryColor = Color.fromRGBO(52, 141, 38, 1);
   static const _warningColor = Colors.red;
 
@@ -13,16 +13,20 @@ abstract class Styles {
   static const TextStyle voy = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.w500,
-    color: _voyColor,
+    color: voyColor,
   );
   static const TextStyle dmn = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.w500,
-    color: _dmnColor,
+    color: dmnColor,
   );
   static const TextStyle colon = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.w500,
+  );
+  static const TextStyle biggerNumbers = TextStyle(
+    fontSize: 50,
+    fontWeight: FontWeight.w600,
   );
   static const TextStyle numbers = TextStyle(
     fontSize: 20,
@@ -40,5 +44,10 @@ abstract class Styles {
     fontSize: 15,
     color: _warningColor,
     fontWeight: FontWeight.w500,
+  );
+  static const TextStyle matchItem = TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.w600,
+    color: Colors.white,
   );
 }

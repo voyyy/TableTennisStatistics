@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:intl/date_symbol_data_file.dart';
 import 'package:intl/intl.dart';
-import 'package:table_tennis_statistics/components/MatchResult.dart';
-import 'package:table_tennis_statistics/components/SetResult.dart';
+import 'package:table_tennis_statistics/components/InputMatchResult.dart';
+import 'package:table_tennis_statistics/components/InputSetResult.dart';
 import 'package:table_tennis_statistics/style/Styles.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 
@@ -162,13 +161,13 @@ class _AddMatchState extends State<AddMatch> {
           ),
           resizeToAvoidBottomInset: true,
           body: SingleChildScrollView(
-            child: Column(children: [
+            child: Column(children: <Widget>[
               Container(
                 margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
                 child: Text('Podaj wynik spotkania w setach',
                     style: Styles.header),
               ),
-              MatchResult(
+              InputMatchResult(
                 voyFocusNode: _focusNodes[0],
                 dmnFocusNode: _focusNodes[1],
                 voyOnChange: (text) {
@@ -202,11 +201,7 @@ class _AddMatchState extends State<AddMatch> {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.calendar_today,
-                    size: 24.0,
-                  ),
+                children: <Widget>[
                   FlatButton(
                       onPressed: () {
                         DatePicker.showDatePicker(
@@ -223,13 +218,24 @@ class _AddMatchState extends State<AddMatch> {
                           },
                         );
                       },
-                      child: Text(_formattedDate)),
+                      child: Row(
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Icon(
+                              Icons.calendar_today,
+                              size: 24.0,
+                            ),
+                          ),
+                          Text(_formattedDate),
+                        ],
+                      )),
                 ],
               ),
               if (_errors[7])
                 Text('Wprowadzono błędny wynik meczu', style: Styles.warnings),
               if (!_errors[7] && _voySet != null && _dmnSet != null)
-                Column(children: [
+                Column(children: <Widget>[
                   Divider(
                     color: Colors.black,
                     thickness: 2,
@@ -245,14 +251,14 @@ class _AddMatchState extends State<AddMatch> {
                   Text(_formattedDate),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
+                    children: <Widget>[
                       Flexible(
-                        child: Column(children: [
+                        child: Column(children: <Widget>[
                           SizedBox(height: 5),
                           ListView(
                             shrinkWrap: true,
                             children: [
-                              SetResult(
+                              InputSetResult(
                                 set: 1,
                                 voyFocusNode: _focusNodes[2],
                                 dmnFocusNode: _focusNodes[3],
@@ -280,7 +286,7 @@ class _AddMatchState extends State<AddMatch> {
                                   child: Text('Wprowadzono błędny wynik',
                                       style: Styles.warnings),
                                 ),
-                              SetResult(
+                              InputSetResult(
                                 set: 2,
                                 voyFocusNode: _focusNodes[4],
                                 dmnFocusNode: _focusNodes[5],
@@ -308,7 +314,7 @@ class _AddMatchState extends State<AddMatch> {
                                   child: Text('Wprowadzono błędny wynik',
                                       style: Styles.warnings),
                                 ),
-                              SetResult(
+                              InputSetResult(
                                 set: 3,
                                 voyFocusNode: _focusNodes[6],
                                 dmnFocusNode: _focusNodes[7],
@@ -336,7 +342,7 @@ class _AddMatchState extends State<AddMatch> {
                                   child: Text('Wprowadzono błędny wynik',
                                       style: Styles.warnings),
                                 ),
-                              SetResult(
+                              InputSetResult(
                                 set: 4,
                                 voyFocusNode: _focusNodes[8],
                                 dmnFocusNode: _focusNodes[9],
@@ -368,7 +374,7 @@ class _AddMatchState extends State<AddMatch> {
                                       style: Styles.warnings),
                                 ),
                               if (_voySet + _dmnSet > 4)
-                                SetResult(
+                                InputSetResult(
                                   set: 5,
                                   voyFocusNode: _focusNodes[10],
                                   dmnFocusNode: _focusNodes[11],
@@ -400,7 +406,7 @@ class _AddMatchState extends State<AddMatch> {
                                       style: Styles.warnings),
                                 ),
                               if (_voySet + _dmnSet > 5)
-                                SetResult(
+                                InputSetResult(
                                   set: 6,
                                   voyFocusNode: _focusNodes[12],
                                   dmnFocusNode: _focusNodes[13],
@@ -432,7 +438,7 @@ class _AddMatchState extends State<AddMatch> {
                                       style: Styles.warnings),
                                 ),
                               if (_voySet + _dmnSet > 6)
-                                SetResult(
+                                InputSetResult(
                                   set: 7,
                                   voyFocusNode: _focusNodes[14],
                                   dmnFocusNode: _focusNodes[15],
@@ -473,7 +479,7 @@ class _AddMatchState extends State<AddMatch> {
                             shape: CircleBorder(),
                             onPressed: () => this.resetPoints(),
                             child: Column(
-                              children: [
+                              children: <Widget>[
                                 Text("Dodaj"),
                                 Text("Mecz"),
                               ],
@@ -484,7 +490,7 @@ class _AddMatchState extends State<AddMatch> {
                         Padding(
                           padding: EdgeInsets.fromLTRB(0, 0, 30, 0),
                           child: Column(
-                            children: [
+                            children: <Widget>[
                               Text("Wynik meczu", style: Styles.biggerWarning),
                               Text("nie zgadza się",
                                   style: Styles.biggerWarning),
