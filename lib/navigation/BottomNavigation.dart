@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:table_tennis_statistics/navigation/MatchHistoryStack.dart';
 import 'package:table_tennis_statistics/screens/AddMatch.dart';
 import 'package:table_tennis_statistics/screens/MatchStatistics.dart';
+import 'package:table_tennis_statistics/style/Styles.dart';
 
 class BottomNavigation extends StatefulWidget {
   BottomNavigation({Key key}) : super(key: key);
@@ -30,14 +31,19 @@ class _BottomNavigationState extends State<BottomNavigation> {
       bottomNavigationBar: BottomNavigationBar(
         onTap: onTabTapped,
         currentIndex: _currentIndex,
+        showUnselectedLabels: false,
+        selectedIconTheme: IconThemeData(
+          size: 28,
+        ),
+        selectedItemColor: Styles.primaryColor,
         items: [
           BottomNavigationBarItem(
-            icon: new Icon(Icons.add),
-            title: new Text('Add Match'),
+            icon: Icon(Icons.add),
+            title: Text('Add Match'),
           ),
           BottomNavigationBarItem(
-            icon: new Icon(Icons.list),
-            title: new Text('History'),
+            icon: Icon(Icons.list),
+            title: Text('History'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.donut_small),

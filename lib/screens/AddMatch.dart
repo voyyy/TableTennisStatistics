@@ -81,7 +81,7 @@ class _AddMatchState extends State<AddMatch> {
     setState(() {
       _voySetPoints.fillRange(0, 7, null);
       _dmnSetPoints.fillRange(0, 7, null);
-      _errors.fillRange(0, 8, false);
+      _errors.fillRange(0, 7, false);
     });
   }
 
@@ -156,104 +156,100 @@ class _AddMatchState extends State<AddMatch> {
         }
       },
       child: Scaffold(
-          appBar: AppBar(
-            title: const Text('Dodaj mecz'),
-          ),
-          resizeToAvoidBottomInset: true,
-          body: SingleChildScrollView(
-            child: Column(children: <Widget>[
-              Container(
-                margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
-                child: Text('Podaj wynik spotkania w setach',
-                    style: Styles.header),
-              ),
-              InputMatchResult(
-                voyFocusNode: _focusNodes[0],
-                dmnFocusNode: _focusNodes[1],
-                voyOnChange: (text) {
-                  if (text.contains(RegExp('[0-4]'))) {
-                    FocusScope.of(context).requestFocus(_focusNodes[1]);
-                    setState(() {
-                      _voySet = int.parse(text);
-                    });
-                  } else {
-                    setState(() {
-                      _voySet = null;
-                    });
-                  }
-                  checkSets();
-                  resetPoints();
-                },
-                dmnOnChange: (text) {
-                  if (text.contains(RegExp('[0-4]'))) {
-                    FocusScope.of(context).unfocus();
-                    setState(() {
-                      _dmnSet = int.parse(text);
-                    });
-                  } else {
-                    setState(() {
-                      _dmnSet = null;
-                    });
-                  }
-                  checkSets();
-                  resetPoints();
-                },
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  FlatButton(
-                      onPressed: () {
-                        DatePicker.showDatePicker(
-                          context,
-                          minTime: DateTime(2014, 1, 1),
-                          maxTime: DateTime.now(),
-                          currentTime: DateTime.now(),
-                          locale: LocaleType.pl,
-                          showTitleActions: true,
-                          onConfirm: (date) {
-                            setState(() {
-                              _formattedDate = _format.format(date);
-                            });
-                          },
-                        );
-                      },
-                      child: Row(
-                        children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Icon(
-                              Icons.calendar_today,
-                              size: 24.0,
-                            ),
+        appBar: AppBar(
+          title: const Text('Dodaj mecz'),
+          backgroundColor: Styles.primaryColor,
+        ),
+        resizeToAvoidBottomInset: true,
+        body: SingleChildScrollView(
+          child: Column(children: <Widget>[
+            Container(
+              margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
+              child:
+                  Text('Podaj wynik spotkania w setach', style: Styles.header),
+            ),
+            InputMatchResult(
+              voyFocusNode: _focusNodes[0],
+              dmnFocusNode: _focusNodes[1],
+              voyOnChange: (text) {
+                if (text.contains(RegExp('[0-4]'))) {
+                  FocusScope.of(context).requestFocus(_focusNodes[1]);
+                  setState(() {
+                    _voySet = int.parse(text);
+                  });
+                } else {
+                  setState(() {
+                    _voySet = null;
+                  });
+                }
+                checkSets();
+                resetPoints();
+              },
+              dmnOnChange: (text) {
+                if (text.contains(RegExp('[0-4]'))) {
+                  FocusScope.of(context).unfocus();
+                  setState(() {
+                    _dmnSet = int.parse(text);
+                  });
+                } else {
+                  setState(() {
+                    _dmnSet = null;
+                  });
+                }
+                checkSets();
+                resetPoints();
+              },
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                FlatButton(
+                    onPressed: () {
+                      DatePicker.showDatePicker(
+                        context,
+                        minTime: DateTime(2014, 1, 1),
+                        maxTime: DateTime.now(),
+                        currentTime: DateTime.now(),
+                        locale: LocaleType.pl,
+                        showTitleActions: true,
+                        onConfirm: (date) {
+                          setState(() {
+                            _formattedDate = _format.format(date);
+                          });
+                        },
+                      );
+                    },
+                    child: Row(
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Icon(
+                            Icons.calendar_today,
+                            size: 24.0,
                           ),
-                          Text(_formattedDate),
-                        ],
-                      )),
-                ],
-              ),
-              if (_errors[7])
-                Text('Wprowadzono błędny wynik meczu', style: Styles.warnings),
-              if (!_errors[7] && _voySet != null && _dmnSet != null)
-                Column(children: <Widget>[
-                  Divider(
-                    color: Colors.black,
-                    thickness: 2,
-                    indent: 50,
-                    endIndent: 50,
-                  ),
-                  Text('Uzupełnij poniższe sety', style: Styles.header),
-                  // Text('data: $_voySetPoints'),
-                  // Text('data: $_dmnSetPoints'),
-                  // Text('data: $_focusNodes'),
-                  // Text('data: $_errors'),
-                  //Text('data: $_textEditingController'),
-                  Text(_formattedDate),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Flexible(
-                        child: Column(children: <Widget>[
+                        ),
+                        Text(_formattedDate),
+                      ],
+                    )),
+              ],
+            ),
+            if (_errors[7])
+              Text('Wprowadzono błędny wynik meczu', style: Styles.warnings),
+            if (!_errors[7] && _voySet != null && _dmnSet != null)
+              Column(children: <Widget>[
+                Divider(
+                  color: Colors.black,
+                  thickness: 2,
+                  indent: 50,
+                  endIndent: 50,
+                ),
+                Text('Uzupełnij poniższe sety', style: Styles.header),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Flexible(
+                      child: Column(
+                        children: <Widget>[
                           SizedBox(height: 5),
                           ListView(
                             shrinkWrap: true,
@@ -465,44 +461,48 @@ class _AddMatchState extends State<AddMatch> {
                                   child: Text('Wprowadzono błędny wynik',
                                       style: Styles.warnings),
                                 ),
+                              SizedBox(
+                                height: 30,
+                              ),
                             ],
                           )
-                        ]),
+                        ],
                       ),
-                      if (checkErrorsAndPoints() && !checkWinner())
-                        Container(
-                          margin: EdgeInsets.fromLTRB(0, 0, 30, 0),
-                          child: FlatButton(
-                            color: Styles.primaryColor,
-                            textColor: Colors.white,
-                            padding: EdgeInsets.all(30.0),
-                            shape: CircleBorder(),
-                            onPressed: () => this.resetPoints(),
-                            child: Column(
-                              children: <Widget>[
-                                Text("Dodaj"),
-                                Text("Mecz"),
-                              ],
-                            ),
-                          ),
-                        ),
-                      if (checkWinner())
-                        Padding(
-                          padding: EdgeInsets.fromLTRB(0, 0, 30, 0),
+                    ),
+                    if (checkErrorsAndPoints() && !checkWinner())
+                      Container(
+                        margin: EdgeInsets.fromLTRB(0, 0, 30, 0),
+                        child: FlatButton(
+                          color: Styles.primaryColor,
+                          textColor: Colors.white,
+                          padding: EdgeInsets.all(30.0),
+                          shape: CircleBorder(),
+                          onPressed: () => this.resetPoints(),
                           child: Column(
                             children: <Widget>[
-                              Text("Wynik meczu", style: Styles.biggerWarning),
-                              Text("nie zgadza się",
-                                  style: Styles.biggerWarning),
-                              Text("z setami", style: Styles.biggerWarning),
+                              Text("Dodaj"),
+                              Text("Mecz"),
                             ],
                           ),
                         ),
-                    ],
-                  ),
-                ])
-            ]),
-          )),
+                      ),
+                    if (checkWinner())
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(0, 0, 30, 0),
+                        child: Column(
+                          children: <Widget>[
+                            Text("Wynik meczu", style: Styles.biggerWarning),
+                            Text("nie zgadza się", style: Styles.biggerWarning),
+                            Text("z setami", style: Styles.biggerWarning),
+                          ],
+                        ),
+                      ),
+                  ],
+                ),
+              ])
+          ]),
+        ),
+      ),
     );
   }
 }

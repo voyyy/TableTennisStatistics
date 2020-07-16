@@ -22,18 +22,11 @@ class MatchItem extends StatelessWidget {
         height: 80,
         color: this.color,
         margin: EdgeInsets.fromLTRB(0, 0, 0, 5),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
-            Align(
-              alignment: Alignment(0.8, 0.2),
-              child: Text('$date', style: Styles.matchItem),
-            ),
-            Align(
-              alignment: Alignment(-0.6, 0.8),
-              child: Text('$matchResult', style: Styles.matchItem),
-            ),
+            Text('$matchResult', style: Styles.matchItem),
+            Text('$date', style: Styles.matchItem),
           ],
         ),
       ),

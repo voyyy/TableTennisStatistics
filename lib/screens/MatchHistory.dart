@@ -60,6 +60,7 @@ class _MatchHistoryState extends State<MatchHistory> {
       children: <Widget>[
         AppBar(
           title: const Text('Historia meczów'),
+          backgroundColor: Styles.primaryColor,
         ),
         ListView.builder(
           shrinkWrap: true,

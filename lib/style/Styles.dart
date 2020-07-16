@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 abstract class Styles {
   static const voyColor = Color.fromRGBO(216, 61, 218, 0.8);
   static const dmnColor = Color.fromRGBO(0, 141, 255, 0.8);
-  static const primaryColor = Color.fromRGBO(52, 141, 38, 1);
+  static const primaryColor = Color.fromRGBO(52, 141, 38, 0.9);
   static const _warningColor = Colors.red;
 
   static const TextStyle header = TextStyle(
