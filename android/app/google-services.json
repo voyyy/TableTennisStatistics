@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "153742883179",
+    "firebase_url": "https://tabletennisstatistics-34b05.firebaseio.com",
+    "project_id": "tabletennisstatistics-34b05",
+    "storage_bucket": "tabletennisstatistics-34b05.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:153742883179:android:d2207a9e747099c960342e",
+        "android_client_info": {
+          "package_name": "com.tabletennisstatistics"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "153742883179-mgbdn4erurptb3visvsrnsl5r5fptv4q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIELEam3_qrJACTuUGE19tM2A280583I8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "153742883179-mgbdn4erurptb3visvsrnsl5r5fptv4q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:table_tennis_statistics/navigation/MatchHistoryStack.dart';
-import 'package:table_tennis_statistics/screens/AddMatch.dart';
-import 'package:table_tennis_statistics/screens/MatchStatistics.dart';
-import 'package:table_tennis_statistics/style/Styles.dart';
+import 'package:table_tennis_statistics/UI/navigation/MatchHistoryStack.dart';
+import 'package:table_tennis_statistics/UI/screens/AddMatch.dart';
+import 'package:table_tennis_statistics/UI/screens/MatchStatistics.dart';
+import 'package:table_tennis_statistics/UI/style/Styles.dart';
 
 class BottomNavigation extends StatefulWidget {
   BottomNavigation({Key key}) : super(key: key);
@@ -39,15 +39,15 @@ class _BottomNavigationState extends State<BottomNavigation> {
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.add),
-            title: Text('Add Match'),
+            title: Text('Dodaj mecz'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.list),
-            title: Text('History'),
+            title: Text('Historia'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.donut_small),
-            title: Text('Statistics'),
+            title: Text('Statystyki'),
           )
         ],
       ),

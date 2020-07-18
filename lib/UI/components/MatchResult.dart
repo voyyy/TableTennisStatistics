@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:table_tennis_statistics/style/Styles.dart';
+import 'package:table_tennis_statistics/UI/style/Styles.dart';
 
 class MatchResult extends StatelessWidget {
   MatchResult({@required this.voySets, @required this.dmnSets});
@@ -25,7 +25,7 @@ class MatchResult extends StatelessWidget {
           ],
         ),
         Container(
-          margin: EdgeInsets.fromLTRB(5, 10, 5, 0),
+          margin: EdgeInsets.fromLTRB(10, 10, 4, 0),
           child: Text(
             ':',
             style: Styles.biggerNumbers,

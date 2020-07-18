@@ -1,18 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:table_tennis_statistics/style/Styles.dart';
+import 'package:table_tennis_statistics/UI/style/Styles.dart';
 
 class InputMatchResult extends StatelessWidget {
-  InputMatchResult(
-      {@required this.voyFocusNode,
-      @required this.voyOnChange,
-      @required this.dmnFocusNode,
-      @required this.dmnOnChange});
+  InputMatchResult({
+    @required this.voyFocusNode,
+    @required this.voyOnChange,
+    @required this.dmnFocusNode,
+    @required this.dmnOnChange,
+    @required this.voyController,
+    @required this.dmnController,
+  });
 
   final voyFocusNode;
   final dmnFocusNode;
   final Function voyOnChange;
   final Function dmnOnChange;
+  final voyController;
+  final dmnController;
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +40,7 @@ class InputMatchResult extends StatelessWidget {
               textAlign: TextAlign.center,
               maxLength: 1,
               keyboardType: TextInputType.number,
+              controller: this.voyController,
               decoration: InputDecoration(
                 counterText: '',
                 border: OutlineInputBorder(),
@@ -69,6 +75,7 @@ class InputMatchResult extends StatelessWidget {
               maxLength: 1,
               textAlign: TextAlign.center,
               keyboardType: TextInputType.number,
+              controller: dmnController,
               decoration: InputDecoration(
                 counterText: '',
                 border: OutlineInputBorder(),

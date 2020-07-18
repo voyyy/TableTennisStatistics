@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:table_tennis_statistics/style/Styles.dart';
+import 'package:table_tennis_statistics/UI/style/Styles.dart';
 
 class InputSetResult extends StatelessWidget {
   InputSetResult({
@@ -48,9 +48,7 @@ class InputSetResult extends StatelessWidget {
                 counterText: '',
                 border: OutlineInputBorder(),
                 isDense: true,
-                //contentPadding: EdgeInsets.all(8),
               ),
-              //onChanged: this.voyOnChange,
               inputFormatters: <TextInputFormatter>[
                 WhitelistingTextInputFormatter.digitsOnly
               ],
@@ -82,7 +80,6 @@ class InputSetResult extends StatelessWidget {
                 border: OutlineInputBorder(),
                 isDense: true,
               ),
-              //onChanged: this.dmnOnChange,
               inputFormatters: <TextInputFormatter>[
                 WhitelistingTextInputFormatter.digitsOnly
               ],

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:table_tennis_statistics/screens/MatchHistory.dart';
-import 'package:table_tennis_statistics/screens/MatchDetails.dart';
+import 'package:table_tennis_statistics/UI/screens/MatchHistory.dart';
+import 'package:table_tennis_statistics/UI/screens/MatchDetails.dart';
 
 class MatchHistoryStack extends StatefulWidget {
   @override

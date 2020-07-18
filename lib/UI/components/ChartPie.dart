@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
-import 'package:table_tennis_statistics/style/Styles.dart';
+import 'package:table_tennis_statistics/UI/style/Styles.dart';
 
 class ChartPie extends StatelessWidget {
   ChartPie({@required this.title, @required this.list});
