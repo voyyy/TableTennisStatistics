@@ -221,8 +221,10 @@ class _AddMatchState extends State<AddMatch> {
             children: <Widget>[
               Container(
                 margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
-                child: Text('Podaj wynik spotkania w setach',
-                    style: Styles.header),
+                child: Text(
+                  'Podaj wynik spotkania',
+                  style: Styles.header,
+                ),
               ),
               InputMatchResult(
                 voyFocusNode: _focusNodes[0],

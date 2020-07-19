@@ -4,6 +4,7 @@ import 'package:intl/date_symbol_data_local.dart';
 import 'package:table_tennis_statistics/UI/components/MatchResult.dart';
 import 'package:table_tennis_statistics/UI/components/SetResult.dart';
 import 'package:table_tennis_statistics/UI/style/Styles.dart';
+import 'package:back_button_interceptor/back_button_interceptor.dart';
 
 class MatchDetails extends StatefulWidget {
   MatchDetails({Key key}) : super(key: key);
@@ -20,6 +21,18 @@ class _MatchDetailsState extends State<MatchDetails> {
     super.initState();
     initializeDateFormatting('pl', null);
     _dateFormat = new DateFormat.yMMMMd('pl');
+    BackButtonInterceptor.add(myInterceptor);
+  }
+
+  @override
+  void dispose() {
+    BackButtonInterceptor.remove(myInterceptor);
+    super.dispose();
+  }
+
+  bool myInterceptor(bool stopDefaultButtonEvent) {
+    Navigator.of(context).pop();
+    return true;
   }
 
   Widget build(BuildContext context) {
