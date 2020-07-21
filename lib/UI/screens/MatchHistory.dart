@@ -112,15 +112,17 @@ class _MatchHistoryState extends State<MatchHistory> {
               );
             }
           } else
-            return Padding(
-              padding: const EdgeInsets.fromLTRB(0, 250, 0, 0),
-              child: Container(
-                height: 70,
-                width: 70,
-                child: CircularProgressIndicator(
-                  strokeWidth: 12,
-                  valueColor:
-                      AlwaysStoppedAnimation<Color>(Styles.primaryColor),
+            return Center(
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(0, 200, 0, 0),
+                child: Container(
+                  height: 70,
+                  width: 70,
+                  child: CircularProgressIndicator(
+                    strokeWidth: 12,
+                    valueColor:
+                        AlwaysStoppedAnimation<Color>(Styles.primaryColor),
+                  ),
                 ),
               ),
             );
