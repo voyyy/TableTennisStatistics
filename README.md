@@ -1,13 +1,13 @@
 #  Table Tennis Statistics Mobile App
 An app was made to collect history of my and my brother's table tennis games. 
 Except for adding games and bringing them up, this app has an option to show statistics
-of all of the games. The app was tested on android system and was used to learn firebese and 
+of all of the games. The app was tested on android system and was used to learn firebase and 
 flutter technology.
 
 ![](https://s7.gifyu.com/images/tennis2.gif)    ![](https://s7.gifyu.com/images/tennis1.gif)
 
 ##  Technologies
-* Fluttter
+* Flutter
 * Firebase
 
 ##  How to run?
